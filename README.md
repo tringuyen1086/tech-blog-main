@@ -4,7 +4,7 @@
 
 
 ## *Visual*
-
+Live Application: [MVC Tech Blog](https://tech-blog-main.herokuapp.com/) 
 ## *Built with*
 
 
