@@ -1,15 +1,15 @@
 // set up Model & DataTypes from sequelize
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require("sequelize");
 // set up bcrypt before set up connection
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 // set up sequelize from connection.js
-const sequelize = require('../config/connection');
+const sequelize = require("../config/connection");
 // define the User class that extends Model
 class User extends Model {
   // create an instance method that checks the password
   checkPassword(loginPw) {
     // return compared password from bcrypt. Consider making this asynchronous
-    return bcrypt.compareSync(loginPW, this.password);
+    return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
@@ -41,7 +41,7 @@ User.init(
         // this means the password must be at least four characters long
         len: [4],
       },
-    }
+    },
   },
   {
     hooks: {
@@ -54,10 +54,13 @@ User.init(
       },
       // set up beforeUpdate lifecycle "hook" functionality
       async beforeUpdate(updatedUserData) {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        updatedUserData.password = await bcrypt.hash(
+          updatedUserData.password,
+          10
+        );
         // return the updatedUserData
         return updatedUserData;
-      }
+      },
     },
     // pass in our imported sequelize connection (the direct connection to our database)
     sequelize,
@@ -68,7 +71,7 @@ User.init(
     // use underscores instead of camel-casing (i.e. `comment_text` and not `commentText`)
     underscored: true,
     // make it so our model name stays lowercase in the database
-    modelName: 'user',
+    modelName: "user",
   }
 );
 
