@@ -25,7 +25,7 @@ Live Application: [MVC Tech Blog](https://tech-blog-main.herokuapp.com/)
 
 ## _Built with_
 
-- [x] Express-handlebars (https://www.npmjs.com/package/express-handlebars)
+- [x] Express-handlebars
 - [x] Model-View-Controller paradigm
 - [x] MySQL2
 - [x] Sequelize
