@@ -20,6 +20,5 @@ const commentData = [
 
 const seedComments = () => Comment.bulkCreate(commentData);
 
-// The password will not be hashed by seed bulk create. It has to be hashed via the update route before the login route
-// sign up new and use the new login is recommended.
+
 module.exports = seedComments;
